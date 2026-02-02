@@ -34,10 +34,10 @@ const StatusFilter = ({ activeFilter, onFilterChange }: StatusFilterProps) => {
           key={filter.value}
           onClick={() => handleClick(filter.value)}
           onKeyDown={(e) => handleKeyDown(e, filter.value)}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+          className={`px-4 py-2 rounded-full text-sm font-heading font-medium transition-all duration-200 ${
             activeFilter === filter.value
-              ? 'bg-gray-900 text-white shadow-md'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'bg-anthropic-dark text-anthropic-light shadow-md'
+              : 'bg-anthropic-light-gray text-anthropic-dark hover:bg-anthropic-mid-gray hover:text-white'
           }`}
           aria-label={`Filter by ${filter.label}`}
           aria-pressed={activeFilter === filter.value}

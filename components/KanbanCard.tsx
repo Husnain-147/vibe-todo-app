@@ -53,22 +53,22 @@ const KanbanCard = ({ task, onEdit, onDelete }: KanbanCardProps) => {
       style={style}
       {...attributes}
       {...listeners}
-      className={`bg-white border border-gray-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-all duration-200 cursor-grab active:cursor-grabbing ${
-        isDragging ? 'ring-2 ring-gray-900' : ''
+      className={`bg-white border border-anthropic-light-gray rounded-lg p-3 shadow-sm hover:shadow-md hover:border-anthropic-orange transition-all duration-200 cursor-grab active:cursor-grabbing ${
+        isDragging ? 'ring-2 ring-anthropic-orange' : ''
       }`}
       aria-label={`Task: ${task.title}`}
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">
+          <h3 className="text-sm font-heading font-semibold text-anthropic-dark mb-1 line-clamp-2">
             {task.title}
           </h3>
           {task.description && (
-            <p className="text-xs text-gray-600 mb-2 line-clamp-2">
+            <p className="text-xs text-anthropic-mid-gray mb-2 line-clamp-2 font-body">
               {task.description}
             </p>
           )}
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-anthropic-mid-gray font-body">
             {new Date(task.updatedAt).toLocaleDateString()}
           </div>
         </div>
@@ -79,7 +79,7 @@ const KanbanCard = ({ task, onEdit, onDelete }: KanbanCardProps) => {
               e.stopPropagation();
               handleKeyDown(e, () => handleEdit());
             }}
-            className="p-1.5 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
+            className="p-1.5 text-anthropic-mid-gray hover:text-anthropic-dark hover:bg-anthropic-light-gray rounded transition-colors"
             aria-label={`Edit task: ${task.title}`}
             tabIndex={0}
           >
@@ -104,7 +104,7 @@ const KanbanCard = ({ task, onEdit, onDelete }: KanbanCardProps) => {
               e.stopPropagation();
               handleKeyDown(e, () => handleDelete());
             }}
-            className="p-1.5 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+            className="p-1.5 text-anthropic-mid-gray hover:text-anthropic-orange hover:bg-[#d97757]/10 rounded transition-colors"
             aria-label={`Delete task: ${task.title}`}
             tabIndex={0}
           >

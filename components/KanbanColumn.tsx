@@ -35,15 +35,15 @@ const KanbanColumn = ({ status, tasks, onEdit, onDelete }: KanbanColumnProps) =>
   const getStatusColor = (status: TaskStatus): string => {
     switch (status) {
       case 'todo':
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-anthropic-light-gray text-anthropic-dark';
       case 'in-progress':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-[#6a9bcc]/20 text-anthropic-blue';
       case 'on-hold':
-        return 'bg-amber-100 text-amber-700';
+        return 'bg-[#d97757]/20 text-anthropic-orange';
       case 'completed':
-        return 'bg-green-100 text-green-700';
+        return 'bg-[#788c5d]/20 text-anthropic-green';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-anthropic-light-gray text-anthropic-dark';
     }
   };
 
@@ -51,16 +51,16 @@ const KanbanColumn = ({ status, tasks, onEdit, onDelete }: KanbanColumnProps) =>
     <div 
       ref={setNodeRef}
       className={`flex flex-col h-full min-h-[500px] transition-colors ${
-        isOver ? 'bg-gray-50' : ''
+        isOver ? 'bg-anthropic-light-gray' : ''
       }`}
     >
-      <div className={`mb-4 transition-colors ${isOver ? 'bg-gray-50 rounded-lg p-2' : ''}`}>
+      <div className={`mb-4 transition-colors ${isOver ? 'bg-anthropic-light-gray rounded-lg p-2' : ''}`}>
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-heading font-semibold text-anthropic-dark">
             {getStatusLabel(status)}
           </h2>
           <span
-            className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(status)}`}
+            className={`px-2 py-1 text-xs font-heading font-medium rounded-full ${getStatusColor(status)}`}
           >
             {tasks.length}
           </span>
@@ -68,13 +68,13 @@ const KanbanColumn = ({ status, tasks, onEdit, onDelete }: KanbanColumnProps) =>
       </div>
       <div
         className={`flex-1 rounded-lg p-3 transition-colors ${
-          isOver ? 'bg-gray-50 border-2 border-dashed border-gray-300' : 'bg-gray-50'
+          isOver ? 'bg-anthropic-light-gray border-2 border-dashed border-anthropic-orange' : 'bg-anthropic-light-gray'
         }`}
       >
         <SortableContext items={tasks.map((task) => task.id)} strategy={verticalListSortingStrategy}>
           <div className="space-y-3">
             {tasks.length === 0 ? (
-              <div className="text-center py-8 text-gray-400 text-sm">
+              <div className="text-center py-8 text-anthropic-mid-gray text-sm font-body">
                 <p>No tasks</p>
               </div>
             ) : (

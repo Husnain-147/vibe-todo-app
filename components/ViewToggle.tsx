@@ -20,14 +20,14 @@ const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
   };
 
   return (
-    <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+    <div className="flex items-center gap-2 bg-anthropic-light-gray rounded-lg p-1">
       <button
         onClick={() => handleClick('list')}
         onKeyDown={(e) => handleKeyDown(e, 'list')}
-        className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+        className={`px-4 py-2 rounded-md text-sm font-heading font-medium transition-all duration-200 ${
           currentView === 'list'
-            ? 'bg-white text-gray-900 shadow-sm'
-            : 'text-gray-600 hover:text-gray-900'
+            ? 'bg-white text-anthropic-dark shadow-sm'
+            : 'text-anthropic-mid-gray hover:text-anthropic-dark'
         }`}
         aria-label="Switch to list view"
         aria-pressed={currentView === 'list'}
@@ -54,10 +54,10 @@ const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
       <button
         onClick={() => handleClick('kanban')}
         onKeyDown={(e) => handleKeyDown(e, 'kanban')}
-        className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+        className={`px-4 py-2 rounded-md text-sm font-heading font-medium transition-all duration-200 ${
           currentView === 'kanban'
-            ? 'bg-white text-gray-900 shadow-sm'
-            : 'text-gray-600 hover:text-gray-900'
+            ? 'bg-white text-anthropic-dark shadow-sm'
+            : 'text-anthropic-mid-gray hover:text-anthropic-dark'
         }`}
         aria-label="Switch to kanban view"
         aria-pressed={currentView === 'kanban'}

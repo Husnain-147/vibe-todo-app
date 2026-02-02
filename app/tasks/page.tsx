@@ -119,33 +119,33 @@ export default function TasksPage() {
 
   if (!isHydrated) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-gray-500">Loading...</div>
+      <div className="min-h-screen flex items-center justify-center bg-anthropic-light">
+        <div className="text-anthropic-mid-gray font-body">Loading...</div>
       </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 py-8 px-4">
+    <main className="min-h-screen bg-anthropic-light py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 flex items-center justify-between">
           <div>
             <Link
               href="/"
-              className="text-gray-600 hover:text-gray-900 mb-2 inline-block text-sm font-medium"
+              className="text-anthropic-mid-gray hover:text-anthropic-dark mb-2 inline-block text-sm font-heading font-medium transition-colors"
               aria-label="Back to home"
               tabIndex={0}
             >
               ← Back to Home
             </Link>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Task Manager</h1>
-            <p className="text-gray-600">Organize and track your tasks efficiently</p>
+            <h1 className="text-3xl font-heading font-bold text-anthropic-dark mb-2">Task Manager</h1>
+            <p className="text-anthropic-mid-gray font-body">Organize and track your tasks efficiently</p>
           </div>
         </div>
 
         <Statistics tasks={tasks} />
 
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <div className="bg-white rounded-lg border border-anthropic-light-gray p-6 mb-6 shadow-sm">
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between mb-6">
             <div className="flex-1 w-full md:w-auto">
               <SearchBar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
@@ -154,7 +154,7 @@ export default function TasksPage() {
               <ViewToggle currentView={view} onViewChange={setView} />
               <button
                 onClick={handleCreateTask}
-                className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium whitespace-nowrap"
+                className="px-6 py-2 bg-anthropic-dark text-anthropic-light rounded-lg hover:bg-[#141413]/90 transition-all duration-200 font-heading font-medium whitespace-nowrap shadow-md hover:shadow-lg"
                 aria-label="Create new task"
                 tabIndex={0}
               >

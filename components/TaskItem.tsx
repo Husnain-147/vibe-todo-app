@@ -31,15 +31,15 @@ const TaskItem = ({ task, onEdit, onDelete }: TaskItemProps) => {
   const getStatusColor = (status: TaskStatus): string => {
     switch (status) {
       case 'todo':
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-anthropic-light-gray text-anthropic-dark';
       case 'in-progress':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-[#6a9bcc]/20 text-anthropic-blue';
       case 'on-hold':
-        return 'bg-amber-100 text-amber-700';
+        return 'bg-[#d97757]/20 text-anthropic-orange';
       case 'completed':
-        return 'bg-green-100 text-green-700';
+        return 'bg-[#788c5d]/20 text-anthropic-green';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-anthropic-light-gray text-anthropic-dark';
     }
   };
 
@@ -59,21 +59,21 @@ const TaskItem = ({ task, onEdit, onDelete }: TaskItemProps) => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200">
+    <div className="bg-white border border-anthropic-light-gray rounded-lg p-4 shadow-sm hover:shadow-md hover:border-anthropic-orange transition-all duration-200">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0" onClick={handleEdit} role="button" tabIndex={0} onKeyDown={(e) => handleKeyDown(e, handleEdit)}>
           <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-lg font-semibold text-gray-900 truncate">{task.title}</h3>
+            <h3 className="text-lg font-heading font-semibold text-anthropic-dark truncate">{task.title}</h3>
             <span
-              className={`px-2 py-1 text-xs font-medium rounded-full whitespace-nowrap ${getStatusColor(task.status)}`}
+              className={`px-2 py-1 text-xs font-heading font-medium rounded-full whitespace-nowrap ${getStatusColor(task.status)}`}
             >
               {getStatusLabel(task.status)}
             </span>
           </div>
           {task.description && (
-            <p className="text-gray-600 text-sm mb-2 line-clamp-2">{task.description}</p>
+            <p className="text-anthropic-mid-gray text-sm mb-2 line-clamp-2 font-body">{task.description}</p>
           )}
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-anthropic-mid-gray font-body">
             Updated: {new Date(task.updatedAt).toLocaleDateString()}
           </div>
         </div>
@@ -84,7 +84,7 @@ const TaskItem = ({ task, onEdit, onDelete }: TaskItemProps) => {
               e.stopPropagation();
               handleKeyDown(e, () => handleEdit());
             }}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors"
+            className="p-2 text-anthropic-mid-gray hover:text-anthropic-dark hover:bg-anthropic-light-gray rounded transition-colors"
             aria-label={`Edit task: ${task.title}`}
             tabIndex={0}
           >
@@ -109,7 +109,7 @@ const TaskItem = ({ task, onEdit, onDelete }: TaskItemProps) => {
               e.stopPropagation();
               handleKeyDown(e, () => handleDelete());
             }}
-            className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+            className="p-2 text-anthropic-mid-gray hover:text-anthropic-orange hover:bg-[#d97757]/10 rounded transition-colors"
             aria-label={`Delete task: ${task.title}`}
             tabIndex={0}
           >

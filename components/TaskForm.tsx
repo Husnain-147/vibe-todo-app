@@ -68,7 +68,7 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-[#141413]/60 flex items-center justify-center z-50 p-4"
       onClick={handleClose}
       onKeyDown={handleKeyDown}
       role="dialog"
@@ -76,11 +76,11 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
       aria-labelledby="task-form-title"
     >
       <div
-        className="bg-white rounded-lg shadow-xl max-w-md w-full p-6"
+        className="bg-anthropic-light rounded-lg shadow-xl max-w-md w-full p-6 border border-anthropic-light-gray"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h2 id="task-form-title" className="text-xl font-semibold text-gray-900">
+          <h2 id="task-form-title" className="text-xl font-heading font-semibold text-anthropic-dark">
             {task ? 'Edit Task' : 'Create New Task'}
           </h2>
           <button
@@ -91,7 +91,7 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
                 handleClose();
               }
             }}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-anthropic-mid-gray hover:text-anthropic-dark transition-colors"
             aria-label="Close dialog"
             tabIndex={0}
           >
@@ -114,8 +114,8 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
-              Title <span className="text-red-500">*</span>
+            <label htmlFor="title" className="block text-sm font-heading font-medium text-anthropic-dark mb-1">
+              Title <span className="text-anthropic-orange">*</span>
             </label>
             <input
               id="title"
@@ -125,8 +125,8 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
                 setTitle(e.target.value);
                 setError('');
               }}
-              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all ${
-                error ? 'border-red-500' : 'border-gray-300'
+              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-anthropic-orange transition-all font-body text-anthropic-dark placeholder-anthropic-mid-gray ${
+                error ? 'border-anthropic-orange' : 'border-anthropic-light-gray'
               }`}
               placeholder="Enter task title"
               aria-required="true"
@@ -134,14 +134,14 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
               aria-describedby={error ? 'title-error' : undefined}
             />
             {error && (
-              <p id="title-error" className="mt-1 text-sm text-red-500" role="alert">
+              <p id="title-error" className="mt-1 text-sm text-anthropic-orange font-body" role="alert">
                 {error}
               </p>
             )}
           </div>
 
           <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="description" className="block text-sm font-heading font-medium text-anthropic-dark mb-1">
               Description
             </label>
             <textarea
@@ -149,20 +149,20 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={4}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all resize-none"
+              className="w-full px-3 py-2 border border-anthropic-light-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-anthropic-orange transition-all resize-none font-body text-anthropic-dark placeholder-anthropic-mid-gray"
               placeholder="Enter task description (optional)"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="status" className="block text-sm font-heading font-medium text-anthropic-dark mb-1">
               Status
             </label>
             <select
               id="status"
               value={status}
               onChange={(e) => setStatus(e.target.value as TaskStatus)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all"
+              className="w-full px-3 py-2 border border-anthropic-light-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-anthropic-orange transition-all font-body text-anthropic-dark bg-white"
             >
               <option value="todo">Todo</option>
               <option value="in-progress">In Progress</option>
@@ -175,13 +175,13 @@ const TaskForm = ({ task, isOpen, onClose, onSubmit }: TaskFormProps) => {
             <button
               type="button"
               onClick={handleClose}
-              className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+              className="px-4 py-2 text-anthropic-dark bg-anthropic-light-gray rounded-lg hover:bg-anthropic-mid-gray hover:text-white transition-colors font-heading font-medium"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+              className="px-4 py-2 text-white bg-anthropic-dark rounded-lg hover:bg-[#141413]/90 transition-colors font-heading font-medium shadow-md"
             >
               {task ? 'Update Task' : 'Create Task'}
             </button>

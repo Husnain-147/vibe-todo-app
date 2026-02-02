@@ -14,7 +14,7 @@ const TaskList = ({ tasks, onEdit, onDelete }: TaskListProps) => {
     return (
       <div className="text-center py-12">
         <svg
-          className="mx-auto h-12 w-12 text-gray-400"
+          className="mx-auto h-12 w-12 text-anthropic-mid-gray"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -27,8 +27,8 @@ const TaskList = ({ tasks, onEdit, onDelete }: TaskListProps) => {
             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
           />
         </svg>
-        <h3 className="mt-2 text-sm font-medium text-gray-900">No tasks found</h3>
-        <p className="mt-1 text-sm text-gray-500">
+        <h3 className="mt-2 text-sm font-heading font-medium text-anthropic-dark">No tasks found</h3>
+        <p className="mt-1 text-sm text-anthropic-mid-gray font-body">
           Get started by creating a new task or adjusting your filters.
         </p>
       </div>
